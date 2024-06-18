@@ -1,49 +1,40 @@
-package bravo.carlos.alkewalletfinal
+package bravo.carlos.alkewalletfinal.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import bravo.carlos.alkewalletfinal.R
 
-class SignUpActivity : AppCompatActivity() {
+class RequestMoneyActivity : AppCompatActivity() {
 
-    //Definimos el tag para la consola
-    val TAG = "SignUpActivityy"
+    val TAG ="RequestMoneyActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_sign_up)
+        setContentView(R.layout.activity_request_money)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        //declaramos el boton directamente
-        var btnRegisterToLogin = findViewById<TextView>(R.id.btn_register_to_login)
-        var btnRegister = findViewById<Button>(R.id.btn_register_r)
+        val btnBackToHome1 = findViewById<ImageView>(R.id.btn_back_add_to_home)
+        val btn2 = findViewById<Button>(R.id.addmoney_222)
 
-        btnRegisterToLogin.setOnClickListener { goToRegisterToLogin() }
-        btnRegister.setOnClickListener { register() }
+        btnBackToHome1.setOnClickListener {goToHomeOfRequest()}
+        btn2.setOnClickListener { goToHomeOfRequest() }
 
 
     }
 
-    private fun register() {
+    private fun goToHomeOfRequest() {
         val i = Intent(this, HomePageActivity::class.java)
-        i.putExtra("NEW_USER", "newuser")
         startActivity(i)
     }
-
-    private fun goToRegisterToLogin() {
-        val i = Intent(this, LoginActivity::class.java)
-        startActivity(i)
-    }
-
-
 }

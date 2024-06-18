@@ -1,4 +1,4 @@
-package bravo.carlos.alkewalletfinal
+package bravo.carlos.alkewalletfinal.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,28 +8,27 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import bravo.carlos.alkewalletfinal.R
 
-class RequestMoneyActivity : AppCompatActivity() {
+class SendMoneyActivity : AppCompatActivity() {
 
-    val TAG ="RequestMoneyActivity"
+    val TAG = "SendMoneyActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_request_money)
+        setContentView(R.layout.activity_send_money)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val btnBackToHome1 = findViewById<ImageView>(R.id.btn_back_add_to_home)
-        val btn2 = findViewById<Button>(R.id.addmoney_222)
+        val btnBackToHome1 = findViewById<ImageView>(R.id.btn_back_add_to_homex)
+        val btn2 = findViewById<Button>(R.id.addmoney_222x)
 
         btnBackToHome1.setOnClickListener {goToHomeOfRequest()}
         btn2.setOnClickListener { goToHomeOfRequest() }
-
-
     }
 
     private fun goToHomeOfRequest() {
