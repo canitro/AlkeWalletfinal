@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import bravo.carlos.alkewalletfinal.model.PaymentRequest
 import bravo.carlos.alkewalletfinal.model.PaymentResponse
 import bravo.carlos.alkewalletfinal.network.ApiClient
 import kotlinx.coroutines.CoroutineScope
@@ -26,8 +25,10 @@ class RequestMoneyViewModel(application: Application) : AndroidViewModel(applica
                     return@launch
                 }
 
-                val paymentRequest = PaymentRequest(type = "topup", concept = concept, amount = amount)
-                val response = ApiClient.apiService.sendPayment("Bearer $token", accountId, paymentRequest)
+                val paymentRequest =
+                    PaymentRequest(type = "topup", concept = concept, amount = amount)
+                val response =
+                    ApiClient.apiService.sendPaymen("Bearer $token", accountId, paymentRequest)
                 if (response.isSuccessful) {
                     val paymentResponse = response.body()
                     topupResultLiveData.postValue(paymentResponse)
@@ -44,5 +45,10 @@ class RequestMoneyViewModel(application: Application) : AndroidViewModel(applica
                 errorMessageLiveData.postValue("Error desconocido: ${e.message}")
             }
         }
+    }
+
+    private fun PaymentRequest(type: String, concept: String, amount: Double) {
+
+
     }
 }

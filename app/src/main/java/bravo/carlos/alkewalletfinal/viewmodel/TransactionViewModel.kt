@@ -9,7 +9,19 @@ import bravo.carlos.alkewalletfinal.network.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import java.io.IOException
+
+// Propiedad de extensión para obtener los datos de una respuesta
+private val Any.data: List<Transaction>?
+    get() {
+        // Implementar la lógica para extraer datos de la respuesta
+        return (this as? Response<TransactionResponse>)?.body()?.data
+    }
+
+class TransactionResponse {
+
+}
 
 class TransactionViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -27,8 +39,7 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
 
                 val response = ApiClient.apiService.getTransactions("Bearer $token")
                 if (response.isSuccessful) {
-                    val transactionsResponse = response.body()
-                    val transactions = transactionsResponse?.data
+                    val transactions = response.data
                     Log.d("TransactionViewModel", "Transacciones obtenidas: $transactions")
                     transactionsLiveData.postValue(transactions ?: emptyList())
                 } else {

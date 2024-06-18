@@ -4,18 +4,19 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import bravo.carlos.alkewalletfinal.model.PaymentRequest
+import bravo.carlos.alkewalletfinal.model.PaymentResponse
 import bravo.carlos.alkewalletfinal.network.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-private fun <T, PaymentResponse> MutableLiveData<T>.postValue(paymentResponse: PaymentResponse?) {
+val Any.isSuccessful: Boolean
+    get() {
+        TODO("Not yet implemented")
+    }
 
-}
-
-class SendMoneyViewModel<PaymentResponse>(application: Application) : AndroidViewModel(application) {
+class SendMoneyViewModel(application: Application) : AndroidViewModel(application) {
 
     val paymentResultLiveData = MutableLiveData<PaymentResponse?>()
     val errorMessageLiveData = MutableLiveData<String>()
@@ -29,8 +30,13 @@ class SendMoneyViewModel<PaymentResponse>(application: Application) : AndroidVie
                     return@launch
                 }
 
-                val paymentRequest = PaymentRequest(type = "payment", concept = concept, amount = amount)
-                val response = ApiClient.apiService.sendPayment("Bearer $token", 2163, paymentRequest)
+                val paymentRequest = PaymentRequest(concept, amount.toString())
+                val response = ApiClient.apiService.sendPayment(
+                    token = "Bearer $token",
+                    paymentRequest = paymentRequest,
+                    paymentRequest1 = paymentRequest
+                )
+
                 if (response.isSuccessful) {
                     val paymentResponse = response.body()
                     paymentResultLiveData.postValue(paymentResponse)
@@ -48,3 +54,25 @@ class SendMoneyViewModel<PaymentResponse>(application: Application) : AndroidVie
             }
         }
     }
+
+    private fun PaymentRequest(type: String, concept: String) {
+
+    }
+}
+
+fun <T> MutableLiveData<T>.postValue(paymentResponse: Unit) {
+
+}
+
+fun Unit.string() {
+
+}
+
+fun Any.errorBody() {
+
+}
+
+fun Any.body() {
+
+}
+

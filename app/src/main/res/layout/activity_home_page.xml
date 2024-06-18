@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.HomePageActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".view.HomePageActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="262dp"
+        android:layout_height="400dp"
+        android:background="@drawable/backgroundhomepage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/backgroundhomepage">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView2"
@@ -22,10 +22,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="53dp"
-            android:text="@string/inicio"
-            android:textSize="20sp"
             android:fontFamily="@font/jua"
+            android:text="@string/inicio"
             android:textColor="@color/blanco"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,10 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="60dp"
+            android:fontFamily="@font/jua"
             android:text="@string/hellouser"
             android:textColor="@color/blanco"
             android:textSize="16sp"
-            android:fontFamily="@font/jua"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -48,10 +48,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="@string/balance"
             android:fontFamily="@font/jua"
-            android:textSize="20sp"
+            android:text="@string/balance"
             android:textColor="@color/blanco"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -61,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="@string/realbalance"
             android:fontFamily="@font/jua"
+            android:text="@string/realbalance"
             android:textColor="@color/blanco"
             android:textSize="40sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,13 +82,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="394dp"
+        android:layout_height="52dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="1dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -119,8 +120,8 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="@font/jua"
         android:text="@string/lasttransact"
         android:textColor="@color/negro"
@@ -129,40 +130,42 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <LinearLayout
-        android:id="@+id/emptylayout_hp"
-        android:layout_width="409dp"
-        android:layout_height="476dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10">
+    android:id="@+id/emptylayout_hp"
+    android:layout_width="409dp"
+    android:layout_height="476dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:visibility="gone"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/empty_icon" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/empty_icon" />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:fontFamily="@font/jua"
-            android:textColor="@color/negro"
-            android:textSize="12sp"
-            android:text="@string/notransact" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="@font/jua"
+        android:textColor="@color/negro"
+        android:textSize="12sp"
+        android:text="@string/notransact" />
+</LinearLayout>
 
     <LinearLayout
         android:id="@+id/transactionlayout_hp"
-        android:layout_width="409dp"
-        android:layout_height="476dp"
+        android:layout_width="403dp"
+        android:layout_height="1043dp"
+        android:layout_marginTop="124dp"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10">
 
@@ -172,34 +175,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user1" />
+            app:srcCompat="@mipmap/user1" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user2" />
+            app:srcCompat="@mipmap/user2" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user3" />
+            app:srcCompat="@mipmap/user3" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user4" />
+            app:srcCompat="@mipmap/user4" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user5" />
+            app:srcCompat="@mipmap/user5" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

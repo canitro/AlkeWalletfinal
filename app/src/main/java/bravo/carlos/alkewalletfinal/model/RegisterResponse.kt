@@ -12,4 +12,12 @@ data class RegisterResponse(
     val createdAt : String?,
     val error : String?,
     val status : Long?
-)
+) {
+    val isSuccessful: Boolean = false
+
+    fun body() {
+
+
+    }
+}
+

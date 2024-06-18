@@ -8,21 +8,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-private val Any.id: Any
-    get() {}
+private val Unit.id: Any
+    get() = "defaultId"
 
 class RegisterViewModel : ViewModel() {
 
-    // variable que almacena el resultado del registro
+    // Variable que almacena el resultado del registro
     val registerResultLiveData = MutableLiveData<Boolean>()
 
-    // funcion para registrar un usuario
+    // Función para registrar un usuario
     fun register(firstName: String, lastName: String, email: String, password: String) {
-        // corrutina para enviar la solicitud
+        // Corrutina para enviar la solicitud
         CoroutineScope(Dispatchers.IO).launch {
-
             try {
-                // enviar la solicitud utilizando ApiClient
+                // Enviar la solicitud utilizando ApiClient
                 val response = ApiClient.apiService.register(
                     RegisterRequest(
                         first_name = firstName,
@@ -31,9 +30,9 @@ class RegisterViewModel : ViewModel() {
                         password = password
                     )
                 )
-                // verificar el estado de la respuesta
-                val response: ResponseType = getResponse() // getResponse()
-                if (response.id != null) {
+
+                // Verificar el estado de la respuesta
+                if (response.isSuccessful && response.body()?.id != null) {
                     registerResultLiveData.postValue(true)
                 } else {
                     registerResultLiveData.postValue(false)
@@ -43,13 +42,7 @@ class RegisterViewModel : ViewModel() {
             }
         }
     }
-
-    private fun getResponse(): ResponseType {
-
-    }
-
-
-    class ResponseType {
-
-    }
 }
+
+// Define la clase ResponseType según tu implementación
+data class ResponseType(val id: String?)
