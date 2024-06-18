@@ -1,5 +1,6 @@
 package bravo.carlos.alkewalletfinal
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -19,6 +20,7 @@ class HomePageActivity : AppCompatActivity() {
     lateinit var linearLayoutEmpty : LinearLayout
     lateinit var linearLayoutTransactions : LinearLayout
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
