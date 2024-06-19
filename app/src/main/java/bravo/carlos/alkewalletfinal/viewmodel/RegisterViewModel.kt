@@ -8,9 +8,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-private val Any.id: Any
-    get() {}
-
 class RegisterViewModel : ViewModel() {
 
     // variable que almacena el resultado del registro
@@ -32,7 +29,6 @@ class RegisterViewModel : ViewModel() {
                     )
                 )
                 // verificar el estado de la respuesta
-                val response: ResponseType = getResponse() // getResponse()
                 if (response.id != null) {
                     registerResultLiveData.postValue(true)
                 } else {
@@ -42,14 +38,5 @@ class RegisterViewModel : ViewModel() {
                 registerResultLiveData.postValue(false)
             }
         }
-    }
-
-    private fun getResponse(): ResponseType {
-
-    }
-
-
-    class ResponseType {
-
     }
 }

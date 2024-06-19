@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Transaction
 import bravo.carlos.alkewalletfinal.R
 import bravo.carlos.alkewalletfinal.model.Transaction
 

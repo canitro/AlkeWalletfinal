@@ -172,34 +172,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user1" />
+            app:srcCompat="@mipmap/user1" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user2" />
+            app:srcCompat="@mipmap/user2" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user3" />
+            app:srcCompat="@mipmap/user3" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user4" />
+            app:srcCompat="@mipmap/user4" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/user5" />
+            app:srcCompat="@mipmap/user5" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
